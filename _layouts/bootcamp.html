@@ -1,0 +1,44 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if page.title %}
+      <title>{{ page.title }}</title>
+    {% else %}
+      <title>{{ page.venue }}</title>
+    {% endif %}
+    {% include header.html %}
+    <meta name="eventtitle" content="{{page.eventtitle}}" />
+    <meta name="eventsubtitle" content="{{page.eventsubtitle}}" />
+    <meta name="venue" content="{{page.venue}}" />
+    <meta name="date" content="{{page.humandate}}" />
+    <meta name="startdate" content="{{page.startdate}}" />
+    <meta name="enddate" content="{{page.enddate}}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="span10 offset1">
+        <!---{% include banner.html %}-->
+
+          <div class="row-fluid">
+            <div class="hero-unit">
+              <h1 style="margin: 0px;"><strong>{{page.eventtitle}}</strong> Workshop</h1>
+              <h2 style="margin: 0px;">
+                <font color=#FDB913>
+                  {{page.humandate}}
+                  {% if page.humantime %}&#8226; {{page.humantime}}{% endif %}
+                  {% if page.room %}&#8226; {{page.room}}{% endif %}
+                </font>
+              </h2>
+            </div>
+        </div>
+
+        {{content}}
+
+        {% include footer.html %}
+      </div>
+    </div>
+    {% include javascript.html %}
+  </body>
+</html>

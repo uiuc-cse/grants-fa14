@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+      <title>Setup Scripts</title>
+    
+    <link rel="shortcut icon" type="image/x-icon" href="..//favicon.ico" />
+<link href="..//css/bootstrap/bootstrap.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="..//css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="..//css/swc.css" />
+<link rel="stylesheet" type="text/css" href="..//css/swc-bootstrap.css" />
+<link rel="alternate" type="application/rss+xml" title="The Software Carpentry Blog" href="/feed.xml"/>
+<meta charset="UTF-8" />
+<meta http-equiv="last-modified" content="" />
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="..//css/lesson.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+  <a href="http://software-carpentry.org" title="Software Carpentry">
+    <img alt="Software Carpentry banner" src="..//img/software-carpentry-banner.png" />
+  </a>
+</div>
+
+
+      <div class="row-fluid">
+        <div class="span10 offset1">
+	  <!-- start content -->
+          
+          <h1>Setup Scripts</h1>
+          
+          <h1 id="students">Students</h1>
+
+<p>This directory contains scripts for testing your machine to make sure
+you have the software you&#39;ll need for your bootcamp installed.  See
+the comments at the head of each script for more details, but you&#39;ll
+basically want to see something like:</p>
+
+<pre><code>$ python swc-installation-test-1.py
+Passed
+$ python swc-installation-test-2.py
+check virtual-shell...  pass
+…
+Successes:
+
+virtual-shell Bourne Again Shell (bash) 4.2.37
+…
+</code></pre>
+
+<p>If you see something like:</p>
+
+<pre><code>$ python swc-installation-test-2.py
+check virtual-shell...  fail
+…
+check for command line shell (virtual-shell) failed:
+  command line shell (virtual-shell) requires at least one of the following dependencies
+  For instructions on installing an up-to-date version, see
+  http://software-carpentry.org/setup/
+  causes:
+  check for Bourne Again Shell (bash) failed:
+    could not find 'bash' executable for Bourne Again Shell (bash)
+    For instructions on installing an up-to-date version, see
+    http://software-carpentry.org/setup/
+…
+</code></pre>
+
+<p>follow the suggestions to try and install any missing software.  For
+additional troubleshooting information, you can use the <code>--verbose</code>
+option:</p>
+
+<pre><code>$ python swc-installation-test-2.py --verbose
+check virtual-shell...  fail
+…
+==================
+System information
+==================
+os.name            : posix
+…
+</code></pre>
+
+<h1 id="instructors">Instructors</h1>
+
+<p><code>swc-installation-test-1.py</code> is pretty simple, and just checks that
+the students have a recent enough version of Python installed that
+they&#39;ll be able to parse <code>swc-installation-test-2.py</code>.  The latter
+checks for a list of dependencies and prints error messages if a
+package is not installed, or if the installed version is not current
+enough.  By default, the script checks for pretty much anything that
+has ever been used at a Software Carpentry bootcamp, which is
+probably not what you want for your particular bootcamp.</p>
+
+<p>Before your bootcamp, you should go through
+<code>swc-installation-test-2.py</code> and comment any dependencies you don&#39;t
+need out of the <code>CHECKS</code> list.  You might also want to skim through
+the minimum version numbers listed where particular dependencies are
+defined (e.g. <code>('git', 'Git', (1, 7, 0), None)</code>).  For the most part,
+fairly conservative values have been selected, so students with modern
+machines should be fine.  If your bootcamp has stricter version
+requirements, feel free to bump them accordingly.</p>
+
+<p>Similarly, the virtual dependencies can be satisfied by any of several
+packages.  If you don&#39;t want to support a particular package (e.g. if
+you have no Emacs experience and don&#39;t want to be responsible for
+students who show up with Emacs as their only editor), you can comment
+out that particular <code>or_dependency</code>.</p>
+
+<p>Finally, don&#39;t forget to post your modified scripts somewhere where
+your students can download them!</p>
+
+	  <!-- end content -->
+	</div>
+      </div>
+
+      <div class="footer">
+  <div class="span4 greybox">
+    
+  </div>
+  <div class="span1"></div>
+  <div class="span4 boxed">
+  <a class="label cse-blue-bg" href="http://cse.illinois.edu/training"><strong>CSE</strong> Training</a>
+  <a class="label cse-blue-bg" href="https://github.com/uiuc-cse">GitHub</a>
+  <a class="label cse-blue-bg" href="..//LICENSE.html">License</a>
+  </div>
+</div>
+
+    </div>
+    <!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="..//js/jquery-1.9.1.min.js"></script>
+<script src="..//js/bootstrap/bootstrap.min.js"></script>
+
+  </body>
+</html>
