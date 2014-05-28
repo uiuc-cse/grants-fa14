@@ -24,7 +24,18 @@
     distributed clusters with a simple programming model.
   </p>
   <p>
-    We will utilize a distribution of Hadoop made available on AWS EC2.
+    We will utilize Hadoop locally and on AWS EC2.
+  </p>
+  <p>
+    The version of Pig bundled with the VM was compiled for a different
+    version of Hadoop and needs to be recompiled.  Please download the
+    script <a href="https://raw.githubusercontent.com/uiuc-cse/bdda-su14/gh-pages/recompile-pig.sh">recompile-pig.sh</a> and save it to your home directory in
+    the VM.  Then, on the command line, please execute the following:
+    <code>
+      cd
+      chmod +x recompile-pig.sh
+      ./recompile-pig.sh
+    </code>
   </p>
   <h4>Amazon Web Services <strong>Elastic Cloud Compute</strong> (EC2)</h4>
   <p>
